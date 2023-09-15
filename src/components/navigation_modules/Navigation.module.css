@@ -1,0 +1,67 @@
+.app-navigation {
+    grid-area: nav;
+    background-color: #a572ce;
+    min-width: 200px;
+}
+
+ul {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.active {
+  color: #462363;
+  text-decoration: none;
+}
+
+.hover-active:hover {
+  cursor: default;
+  opacity: 1;
+}
+
+.app-navigation__menu {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 7px;
+  padding: 25px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.app-navigation__menu-item:nth-of-type(5) {
+  margin-top: 16px;
+}
+
+.friends-block {
+  padding: 25px;
+}
+
+.friends-block__heading {
+  color: #ffffff;
+  margin: 15px auto 15px 0;
+
+}
+
+.friends-wrapper {
+  /* border: 1px solid #462363; */
+  height: 70px;
+  overflow: hidden;
+
+}
+
+.friends-elements {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+

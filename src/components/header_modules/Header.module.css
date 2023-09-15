@@ -1,0 +1,9 @@
+.app-header {
+    grid-area: header;
+    background-color: #a572ce;
+  }
+
+  .app-header__logo-image {
+    filter: invert(1);
+  }
+

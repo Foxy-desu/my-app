@@ -1,0 +1,45 @@
+.friend-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 5px;
+    /* margin: 5px; */
+    height: 100%;
+
+}
+
+.link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.active {
+    color: #462363;
+    text-decoration: none;
+}
+
+.hover-active:hover {
+    cursor: default;
+    opacity: 1;
+}
+
+.friend-avatar-wrap {
+    box-sizing: border-box;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+
+
+}
+
+.friend-avatar-image {
+    width: 180%;
+}
+
+.friend-name-wrap {
+    align-self: center;
+    color: #ffffff;
+}
+

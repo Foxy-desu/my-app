@@ -1,0 +1,42 @@
+.dialogue {
+    padding-left: 15px;
+
+}
+
+.dialogueWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dialogueAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+}
+
+.dialogueAvatarImage {
+    position: relative;
+    left: -30%;
+    object-fit: cover;
+    width: 180%;
+
+
+}
+
+.dialogue-text {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.active {
+    color: rgb(66, 39, 97);
+    text-decoration: none;
+}
+
+.hover-active:hover {
+    cursor: default;
+    opacity: 1;
+}

@@ -1,0 +1,20 @@
+.message {
+    position: relative;
+    width: fit-content;
+    max-width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.486);
+    background-color: #ad7cad;
+}
+
+.message[type="incoming"] {
+    margin-left: 0; 
+    margin-right: auto;
+}
+   
+
+.message[type="outcoming"] {
+    margin-right: 0; 
+    margin-left: auto;
+}

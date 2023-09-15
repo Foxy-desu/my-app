@@ -1,0 +1,24 @@
+p {
+    color: white;
+}
+
+.name-wrap {
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.app-main__profile-info {
+    padding: 0 0 15px 0;
+}
+
+.profile-info {
+    font-size: 18px;
+    font-weight: 500;
+
+}
+
+.profile-info span {
+    font-weight: 400;
+    margin-left: 7px;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+}

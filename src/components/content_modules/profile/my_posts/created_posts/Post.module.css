@@ -1,0 +1,29 @@
+.post {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-areas: 
+   "photo text text"
+   "stats stats stats";
+   align-items: center;
+   column-gap: 15px;
+    box-sizing: border-box;
+    padding: 5px;
+    border: 1px solid black
+}
+
+.image-container {
+    width: 100px;
+    grid-area: photo;
+}
+
+.message {
+    grid-area: text;
+}
+
+.stats {
+    display: flex;
+    gap: 15px;
+    justify-content: end;
+    grid-area: stats;
+}
+

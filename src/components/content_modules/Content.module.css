@@ -1,0 +1,28 @@
+/* .app-main {
+    grid-area: cont;
+    background-color: #a572ce;
+    width: auto;
+} */
+
+.app-main__banner {
+    box-sizing: border-box;
+    max-width: 100vw;
+    height: 200px;
+    margin: 30px;
+    overflow: none;
+    display: flex;
+    justify-content: center;
+    background-color: #e6d7dd;
+  }
+  
+  .img-wrap {
+    display: flex;
+    width: 50%;
+    overflow: hidden;
+    justify-content: center;
+    
+  }
+  .banner-image {
+    width: auto;
+  }
+
