@@ -21,14 +21,10 @@ function App(props) {
         <div className="app-wrapper-content">
           <Routes>
             <Route path="*" element={<Navigate to="/profile"/>}/>
-            <Route path="/profile" element={<Content postData={props.state.profilePage.postData} 
-                                                     addNewPost={props.addPost} 
-                                                     newPostText={props.state.profilePage.newPostText} 
-                                                     updateNewPostText={props.updateNewPostText}/>} />
+            <Route path="/profile" element={<Content appState={props.state.profilePage} 
+                                                     dispatch={props.dispatch}/>} />
             <Route path="/dialogues/*" element={<Dialogues appState={props.state.dialoguePage}
-                                                           createNewMessage={props.addMessage}
-                                                           newMessageText={props.state.dialoguePage.newMessageText}
-                                                           updateNewMessageText={props.updatenewmessageText}/>} />
+                                                           dispatch={props.dispatch} />}/>
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />

@@ -11,10 +11,8 @@ const Content = (props)=> {
         <main> 
             <ProfileBanner />
             <Profile />
-            <Posts postData={props.postData} 
-                   addNewPost={props.addNewPost} 
-                   newPostText ={props.newPostText} 
-                   updateNewPostText={props.updateNewPostText}/>
+            <Posts appState={props.appState} 
+                   dispatch={props.dispatch}/>
         </main>
     );
 };

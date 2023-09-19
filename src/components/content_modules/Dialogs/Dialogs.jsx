@@ -9,15 +9,12 @@ const Dialogues = (props) => {
     let textArea = React.createRef();
 
     let textMessageChange = () => {
-        try {
             let text = textArea.current.value;
-            props.updateNewMessageText(text);
-        } catch(error) {console.error(error)};
-
+            props.dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text,});
     };
 
     let newMessage = ()=> {
-        props.createNewMessage();
+        props.dispatch({type: 'ADD-NEW-MESSAGE',});
     };
 
     let keyDownHandler = (event)=> {
@@ -48,7 +45,7 @@ const Dialogues = (props) => {
                 </div>
                 <div className={classes["create-message-panel"]}>
                     <form className={classes["form"]}>
-                        <textarea value={props.newMessageText} onChange={textMessageChange} onKeyDown={keyDownHandler} tabIndex={0} ref={textArea} className={classes["message-textarea"]}></textarea>
+                        <textarea value={props.appState.newMessageText} onChange={textMessageChange} onKeyDown={keyDownHandler} tabIndex={0} ref={textArea} className={classes["message-textarea"]}></textarea>
                         <button type="reset" onClick={newMessage} className={classes["send-message-button"]}>Send message</button>
                     </form>
                 </div>
