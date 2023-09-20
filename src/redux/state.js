@@ -1,3 +1,6 @@
+const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
 
 let store = {
     _state: {
@@ -91,6 +94,9 @@ let store = {
         }
     },
 };
+
+export const textMessageChangeActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text,});
+export const newMessageActionCreator = () => ({type: ADD_NEW_MESSAGE,});
 
 export default store;
 window.store = store;

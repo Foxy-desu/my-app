@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Dialogues.module.css";
 import DialogueItem from "./DialogItems/DialogItems";
 import MessageItem from "./Messages/MessageItem";
-
+import {newMessageActionCreator, textMessageChangeActionCreator} from "../../../redux/state"
 
 const Dialogues = (props) => {
 
@@ -10,11 +10,13 @@ const Dialogues = (props) => {
 
     let textMessageChange = () => {
             let text = textArea.current.value;
-            props.dispatch({type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text,});
+            let action = textMessageChangeActionCreator(text);
+            props.dispatch(action);
     };
 
     let newMessage = ()=> {
-        props.dispatch({type: 'ADD-NEW-MESSAGE',});
+        let action = newMessageActionCreator();
+        props.dispatch(action);
     };
 
     let keyDownHandler = (event)=> {

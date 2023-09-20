@@ -4,9 +4,18 @@ import classes from "./Posts.module.css";
 
 const Posts = (props) => {
 
+    const newPostActionCreator = () => {
+        return {type: 'ADD-NEW-POST',}
+    }; 
+
+    const textareaChangeActionCreator = (text) => {
+        return {type: 'UPDATE-NEW-POST-TEXT', newText: text,}
+    };
+
     let textArea = React.createRef();
     let newPost = ()=> {
-        props.dispatch({type: 'ADD-NEW-POST',});
+        let action = newPostActionCreator();
+        props.dispatch(action);
     };
 
     let createdPostsComponents = props.appState.postData.map((post) => {
@@ -16,7 +25,8 @@ const Posts = (props) => {
 
     let textareaChange = ()=> {
         let text = textArea.current.value;
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text,});
+        let action = textareaChangeActionCreator(text);
+        props.dispatch(action);
     };
 
     let keyDownHandler = (event)=> {
