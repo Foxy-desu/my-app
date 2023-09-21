@@ -1,5 +1,10 @@
+import navigationReducer from "./navigationReducer";
+import profileReducer from "./profileReducer";
+import dialogueReducer from "./dialogueReducer";
+
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
 const ADD_NEW_POST = 'ADD-NEW-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
@@ -7,12 +12,10 @@ let store = {
     _state: {
 
         profilePage: {
-
             postData: [
                 { id: "1", message: "Hello! This is my first post :)", likes: "35", comments: "8", },
 
             ],
-
             newPostText: "",
         },
         dialoguePage: {
@@ -62,37 +65,10 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'UPDATE-NEW-POST-TEXT') {
-            this._state.profilePage.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === 'ADD-NEW-POST') {
-            let newPost = {
-                id: String((this._state.profilePage.postData.length) + 1),
-                message: this._state.profilePage.newPostText,
-                likes: 0,
-                comments: 0,
-            };
-    
-            this._state.profilePage.postData.push(newPost);
-            this._state.profilePage.newPostText = "";
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
-            this._state.dialoguePage.newMessageText = action.newText;
-            this._callSubscriber(this._state);
-        }
-        else if (action.type === 'ADD-NEW-MESSAGE') {
-            let newMessage = {
-                id: String(this._state.dialoguePage.messagesData.length + 1),
-                message: this._state.dialoguePage.newMessageText,
-                type: "outcoming",
-            };
-    
-            this._state.dialoguePage.messagesData.push(newMessage);
-            this._state.dialoguePage.newMessageText = "";
-            this._callSubscriber(this._state);
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialoguePage = dialogueReducer(this._state.dialoguePage, action);
+        this._state.navigationBar = navigationReducer(this._state.navigationBar, action);
+        this._callSubscriber(this._state);
     },
 };
 
