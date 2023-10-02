@@ -22,4 +22,6 @@ const profileReducer = (state, action) => {
     return state;
 };
 
+export const newPostActionCreator = () => ({type: ADD_NEW_POST,}); 
+export const textareaChangeActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text,});
 export default profileReducer;

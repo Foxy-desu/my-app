@@ -12,7 +12,7 @@ const Navigation = (props) => {
     );
   };
 
-  let friendsElements = props.navigationState.friendsList.map(friend => {
+  let friendsElements = props.state.friendsList.map(friend => {
     return (
       <FriendsItem friendName={friend.name} avatar={friend.dialogueAvatar} friendId={friend.id} />
     )

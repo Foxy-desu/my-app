@@ -2,12 +2,6 @@ import navigationReducer from "./navigationReducer";
 import profileReducer from "./profileReducer";
 import dialogueReducer from "./dialogueReducer";
 
-const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-
-const ADD_NEW_POST = 'ADD-NEW-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-
 let store = {
     _state: {
 
@@ -72,10 +66,6 @@ let store = {
     },
 };
 
-export const textMessageChangeActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text,});
-export const newMessageActionCreator = () => ({type: ADD_NEW_MESSAGE,});
-export const newPostActionCreator = () => ({type: ADD_NEW_POST,}); 
-export const textareaChangeActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text,});
 
 export default store;
 window.store = store;

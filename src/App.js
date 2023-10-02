@@ -17,7 +17,7 @@ function App(props) {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Navigation navigationState={props.state.navigationBar}/>
+        <Navigation state={props.state.navigationBar}/>
         <div className="app-wrapper-content">
           <Routes>
             <Route path="*" element={<Navigate to="/profile"/>}/>
