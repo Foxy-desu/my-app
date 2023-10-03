@@ -4,6 +4,7 @@ import DialogueItem from "./DialogItems/DialogItems";
 import MessageItem from "./Messages/MessageItem";
 import {newMessageActionCreator, textMessageChangeActionCreator} from "../../../redux/dialogueReducer"
 
+
 const Dialogues = (props) => {
 
     let textArea = React.createRef();
@@ -24,7 +25,6 @@ const Dialogues = (props) => {
             newMessage();
         }
     };
-
 
     let dialoguesElements = props.appState.dialoguesData.map((dialogueItem) => {
         return (

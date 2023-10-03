@@ -12,7 +12,6 @@ import Settings from "./components/content_modules/Settings/Settings";
 import Friends from "./components/content_modules/Friends/Friends";
 
 function App(props) {
-  
   return (
     <BrowserRouter>
       <div className="App">
