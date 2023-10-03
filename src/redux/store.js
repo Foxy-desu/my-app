@@ -1,6 +1,6 @@
 import navigationReducer from "./navigationReducer";
 import profileReducer from "./profileReducer";
-import dialogueReducer from "./dialogueReducer";
+import dialogueReducer from "./dialogReducer";
 
 let store = {
     _state: {

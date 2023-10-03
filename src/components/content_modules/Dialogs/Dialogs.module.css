@@ -1,5 +1,5 @@
 
-.dialogues {
+.dialogs {
     display: grid;
     grid-template-columns: 2fr 10fr ;
     height: 100%;
@@ -8,7 +8,7 @@
     color: #ffffff;
 }
 
-.dialogues-items {
+.dialogs-items {
     padding: 20px;
     border-right: 1px dashed #dcbfdd;
 }

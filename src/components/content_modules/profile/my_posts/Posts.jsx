@@ -6,20 +6,19 @@ import { newPostActionCreator, textareaChangeActionCreator } from "../../../../r
 const Posts = (props) => {
 
     let textArea = React.createRef();
+    
     let newPost = ()=> {
-        let action = newPostActionCreator();
-        props.dispatch(action);
+        props.newPost();
     };
 
-    let createdPostsComponents = props.appState.postData.map((post) => {
+    let createdPostsComponents = props.posts.map((post) => {
         let result = (<Post message={post.message} likesCount={post.likes} commentsCount={post.comments} />);
         return result;
     });
 
     let textareaChange = ()=> {
         let text = textArea.current.value;
-        let action = textareaChangeActionCreator(text);
-        props.dispatch(action);
+        props.textchange(text);
     };
 
     let keyDownHandler = (event)=> {
@@ -33,7 +32,7 @@ const Posts = (props) => {
             <h2 className={classes['posts-heading']}>My posts</h2>
             <div className={classes['post-form']}>
                 <form name='create-post' id='post-form'>
-                    <div><textarea value = {props.appState.newPostText} onChange={textareaChange} onKeyDown={keyDownHandler} ref={textArea} className={classes['post-form__post-textfield']} type='text'></textarea></div>
+                    <div><textarea value = {props.newtext} onChange={textareaChange} onKeyDown={keyDownHandler} ref={textArea} className={classes['post-form__post-textfield']} type='text'></textarea></div>
                     <div><button type='button' className={classes['post-form__post-button']} onClick={newPost}>Create a post</button></div>
                 </form>
             </div>

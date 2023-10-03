@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Header from "./components/header_modules/Header";
-import Navigation from "./components/navigation_modules/Navigation";
+import NavigationContainer from "./components/navigation_modules/NavigationContainer";
 import Content from "./components/content_modules/Content";
 import Footer from "./components/footer_modules/Footer";
-import Dialogues from "./components/content_modules/Dialogs/Dialogs";
+import DialogsContainer from "./components/content_modules/Dialogs/DialogsContainer";
 import Music from "./components/content_modules/Music/Music";
 import News from "./components/content_modules/News/News";
 import Settings from "./components/content_modules/Settings/Settings";
@@ -16,13 +16,13 @@ function App(props) {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <Navigation state={props.state.navigationBar}/>
+        <NavigationContainer state={props.state}/>
         <div className="app-wrapper-content">
           <Routes>
             <Route path="*" element={<Navigate to="/profile"/>}/>
-            <Route path="/profile" element={<Content appState={props.state.profilePage} 
+            <Route path="/profile" element={<Content state={props.state} 
                                                      dispatch={props.dispatch}/>} />
-            <Route path="/dialogues/*" element={<Dialogues appState={props.state.dialoguePage}
+            <Route path="/dialogues/*" element={<DialogsContainer state={props.state}
                                                            dispatch={props.dispatch} />}/>
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />

@@ -1,45 +1,41 @@
 import React from "react";
-import classes from "./Dialogues.module.css";
-import DialogueItem from "./DialogItems/DialogItems";
+import classes from "./Dialogs.module.css";
+import DialogItem from "./DialogItems/DialogItems";
 import MessageItem from "./Messages/MessageItem";
-import {newMessageActionCreator, textMessageChangeActionCreator} from "../../../redux/dialogueReducer"
 
-
-const Dialogues = (props) => {
+const Dialogs = (props) => {
 
     let textArea = React.createRef();
 
     let textMessageChange = () => {
             let text = textArea.current.value;
-            let action = textMessageChangeActionCreator(text);
-            props.dispatch(action);
+            props.textChange(text);
     };
 
     let newMessage = ()=> {
-        let action = newMessageActionCreator();
-        props.dispatch(action);
+        props.newMessage();
     };
 
     let keyDownHandler = (event)=> {
         if (event.key === 'Enter' && event.ctrlKey) {
-            newMessage();
+            props.newMessage();
         }
     };
 
-    let dialoguesElements = props.appState.dialoguesData.map((dialogueItem) => {
+    let dialogsElements = props.dialogs.map((dialogItem) => {
         return (
-            <DialogueItem name={dialogueItem.name} id={dialogueItem.id} dialogueAvatar={dialogueItem.dialogueAvatar} />
+            <DialogItem name={dialogItem.name} id={dialogItem.id} dialogAvatar={dialogItem.dialogAvatar} />
         )
     });
 
-    let messagesElements = props.appState.messagesData.map((messageItem) => {
+    let messagesElements = props.messages.map((messageItem) => {
         return (<MessageItem message={messageItem.message} type={messageItem.type}/>)
     });
 
     return (
-        <div className={classes["dialogues"]}>
-            <div className={classes["dialogues-items"]}>
-                {dialoguesElements}
+        <div className={classes["dialogs"]}>
+            <div className={classes["dialogs-items"]}>
+                {dialogsElements}
             </div>
             <div className={classes["messages"]}>
                 <div className={classes["communication-display"]}>
@@ -47,7 +43,7 @@ const Dialogues = (props) => {
                 </div>
                 <div className={classes["create-message-panel"]}>
                     <form className={classes["form"]}>
-                        <textarea value={props.appState.newMessageText} onChange={textMessageChange} onKeyDown={keyDownHandler} tabIndex={0} ref={textArea} className={classes["message-textarea"]}></textarea>
+                        <textarea value={props.newText} onChange={textMessageChange} onKeyDown={keyDownHandler} tabIndex={0} ref={textArea} className={classes["message-textarea"]}></textarea>
                         <button type="reset" onClick={newMessage} className={classes["send-message-button"]}>Send message</button>
                     </form>
                 </div>
@@ -58,4 +54,4 @@ const Dialogues = (props) => {
     )
 };
 
-export default Dialogues;
+export default Dialogs;

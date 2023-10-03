@@ -1,6 +1,6 @@
 import React from "react";
 import ProfileBanner from "./profile/my_profile/ProfileBanner/ProfileBanner";
-import Posts from "./profile/my_posts/Posts";
+import PostsContainer from "./profile/my_posts/PostsContainer";
 import Profile from "./profile/Profile";
 
 
@@ -11,7 +11,7 @@ const Content = (props)=> {
         <main> 
             <ProfileBanner />
             <Profile />
-            <Posts appState={props.appState} 
+            <PostsContainer state={props.state} 
                    dispatch={props.dispatch}/>
         </main>
     );
