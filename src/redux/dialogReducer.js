@@ -29,23 +29,30 @@ let initialState = {
 };
 
 const dialogReducer = (state = initialState, action) => {
+
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_TEXT: 
-        state.newMessageText = action.newText;
-        break;
-        case ADD_NEW_MESSAGE: 
+            return {
+                ...state,
+                newMessageText: action.newText,
+            };
+        
+        case ADD_NEW_MESSAGE: {
             let newMessage = {
             id: String(state.messagesData.length + 1),
             message: state.newMessageText,
             type: "outcoming",
-        };
-
-        state.messagesData.push(newMessage);
-        state.newMessageText = "";
-        break;
+            };
+            
+            return {
+                ...state,
+                messagesData: [...state.messagesData, newMessage],
+                newMessageText: "",
+            };
+        }; 
+        default:
+            return state;  
     };
-
-    return state;
 };
 
 export const textMessageChangeActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text,});

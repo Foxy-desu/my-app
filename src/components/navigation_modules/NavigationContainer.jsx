@@ -1,15 +1,18 @@
-import React from "react";
 import Navigation from "./Navigation";
+import { connect } from "react-redux";
 
-const NavigationContainer = (props) => {
-
-
-  let friendsList = props.state.navigationBar.friendsList;
-
-  return (
-    <Navigation friends={friendsList}/>
-  );
-
+const mapStateToProps = (state)=>{
+  return{
+    friends: state.navigationBar.friendsList,
+  }
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  }
+};
+
+const NavigationContainer = connect(mapStateToProps, mapDispatchToProps)(Navigation);
 
 export default NavigationContainer;

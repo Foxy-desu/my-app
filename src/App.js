@@ -16,14 +16,12 @@ function App(props) {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <NavigationContainer state={props.state}/>
+        <NavigationContainer/>
         <div className="app-wrapper-content">
           <Routes>
             <Route path="*" element={<Navigate to="/profile"/>}/>
-            <Route path="/profile" element={<Content state={props.state} 
-                                                     dispatch={props.dispatch}/>} />
-            <Route path="/dialogues/*" element={<DialogsContainer state={props.state}
-                                                           dispatch={props.dispatch} />}/>
+            <Route path="/profile" element={<Content/>} />
+            <Route path="/dialogues/*" element={<DialogsContainer/>}/>
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />

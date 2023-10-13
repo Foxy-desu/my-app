@@ -4,15 +4,12 @@ import PostsContainer from "./profile/my_posts/PostsContainer";
 import Profile from "./profile/Profile";
 
 
-const Content = (props)=> {
-
-    
+const Content = ()=> {    
     return (
         <main> 
             <ProfileBanner />
             <Profile />
-            <PostsContainer state={props.state} 
-                   dispatch={props.dispatch}/>
+            <PostsContainer/>
         </main>
     );
 };
