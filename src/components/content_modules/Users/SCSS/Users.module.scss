@@ -1,0 +1,42 @@
+$userPadding: 15px;
+$userGap: 15px;
+$infoContainersGap: 90px;
+$leftContainerGap: 5px;
+
+@mixin flexBox($direction: row, $gap: 0) {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: $direction;
+    gap: $gap;
+}
+
+.user {
+    @include flexBox(row, $userGap);
+    box-sizing: border-box;
+    padding: $userPadding;
+    
+    .user__container_left {
+        @include flexBox(column, $leftContainerGap);
+
+        .user__user-photo {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .user__container_right {
+        @include flexBox(row, $infoContainersGap);
+        box-sizing: border-box;
+        padding: $userPadding;
+        color: #fff;
+        border: 1px solid #fff;
+        
+        .user__user-info-wrap {
+            @include flexBox(column, $userGap);
+
+            &:last-child {
+                align-items: end;
+            }
+        }
+    }
+}

@@ -36,6 +36,11 @@ const Navigation = (props) => {
           </div>
         </div>
       </div>
+      <div>
+        <ul className={classes["app-navigation__menu"]}>
+          <li className={`${classes["app-navigation__menu-item"]} ${classes["find-users-item"]}`}><NavLink to="/users" className={isActive}>Find users</NavLink></li>
+        </ul>
+      </div>
     </nav>
 
   );

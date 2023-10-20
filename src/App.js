@@ -10,8 +10,9 @@ import Music from "./components/content_modules/Music/Music";
 import News from "./components/content_modules/News/News";
 import Settings from "./components/content_modules/Settings/Settings";
 import Friends from "./components/content_modules/Friends/Friends";
+import UsersContainer from "./components/content_modules/Users/UsersContainer";
 
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
       <div className="App">
@@ -26,6 +27,7 @@ function App(props) {
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/friends/*" element={<Friends/>} />
+            <Route path="/users" element={<UsersContainer/>}/>
           </Routes>
         </div>
         <Footer />
