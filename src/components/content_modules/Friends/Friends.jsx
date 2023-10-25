@@ -1,10 +1,16 @@
 import React from "react";
 import classes from "./Friends.module.css";
 
-function Friends(props) {
-    return (
-        <div>Friends list</div>
-    )
+class Friends extends React.Component {
+    render =()=> {
+        return (
+            <div>Friends list</div>
+        )
+    }
 };
+
+// function Friends(props) {
+    
+// };
 
 export default Friends;

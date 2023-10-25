@@ -1,48 +1,45 @@
 import React from "react";
 import Post from "./created_posts/Post";
 import classes from "./Posts.module.css";
-import { newPostActionCreator, textareaChangeActionCreator } from "../../../../redux/profileReducer";
 
-const Posts = (props) => {
+class Posts extends React.Component {
+    textArea = React.createRef();
 
-    let textArea = React.createRef();
-    
-    let newPost = ()=> {
-        props.newPost();
+    newPost = ()=> {
+        this.props.newPost();
     };
-
-    let createdPostsComponents = props.posts.map((post) => {
-        let result = (<Post message={post.message} likesCount={post.likes} commentsCount={post.comments} />);
-        return result;
-    });
-
-    let textareaChange = ()=> {
-        let text = textArea.current.value;
-        props.textchange(text);
+    textareaChange = ()=> {
+        let text = this.textArea.current.value;
+        this.props.textchange(text);
     };
-
-    let keyDownHandler = (event)=> {
+    keyDownHandler = (event)=> {
         if (event.key === 'Enter' && event.ctrlKey) {
-            newPost();
+            this.newPost();
         }
     };
+    render =()=> { 
+        let createdPostsComponents = this.props.posts.map((post) => {
+            let result = (<Post message={post.message} likesCount={post.likes} commentsCount={post.comments} />);
+            return result;
+        });
 
-    return (
-        <section className={classes.posts}>
-            <h2 className={classes['posts-heading']}>My posts</h2>
-            <div className={classes['post-form']}>
-                <form name='create-post' id='post-form'>
-                    <div><textarea value = {props.newtext} onChange={textareaChange} onKeyDown={keyDownHandler} ref={textArea} className={classes['post-form__post-textfield']} type='text'></textarea></div>
-                    <div><button type='button' className={classes['post-form__post-button']} onClick={newPost}>Create a post</button></div>
-                </form>
-            </div>
-            <div className='created-posts-block'>
-                <div className={classes["posts-wrap"]}>
-                    {createdPostsComponents}
+        return (
+            <section className={classes.posts}>
+                <h2 className={classes['posts-heading']}>My posts</h2>
+                <div className={classes['post-form']}>
+                    <form name='create-post' id='post-form'>
+                        <div><textarea value = {this.props.newtext} onChange={this.textareaChange} onKeyDown={this.keyDownHandler} ref={this.textArea} className={classes['post-form__post-textfield']} type='text'></textarea></div>
+                        <div><button type='button' className={classes['post-form__post-button']} onClick={this.newPost}>Create a post</button></div>
+                    </form>
                 </div>
-            </div>
-        </section>
-    );
+                <div className='created-posts-block'>
+                    <div className={classes["posts-wrap"]}>
+                        {createdPostsComponents}
+                    </div>
+                </div>
+            </section>
+        );
+    }
 };
 
 export default Posts;

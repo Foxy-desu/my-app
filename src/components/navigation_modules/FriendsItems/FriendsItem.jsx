@@ -1,26 +1,29 @@
+import React from "react";
 import classes from "./FriendsItem.module.css"
 import { NavLink } from "react-router-dom";
 
-function FriendsItem(props) {
+class FriendsItem extends React.Component {
 
-    let path = `/friends/id:${props.friendId}`;
-
-    function isActive(item) {
+    isActive =(item)=> {
         return (
-          item.isActive ? classes['active'] + ' ' + classes['hover-active'] : classes['link']
-        );
-      };
+            item.isActive ? classes['active'] + ' ' + classes['hover-active'] : classes['link']
+          );
+    }
 
-    return (
-        <div className={classes["friend-wrap"]}>
-            <div className={classes["friend-avatar-wrap"]}>
-                <img className={classes["friend-avatar-image"]} src={props.avatar} alt="Avatar" />
+    render =()=> {
+        let path = `/friends/id:${this.props.friendId}`;
+        
+        return (
+            <div className={classes["friend-wrap"]}>
+                <div className={classes["friend-avatar-wrap"]}>
+                    <img className={classes["friend-avatar-image"]} src={this.props.avatar} alt="Avatar" />
+                </div>
+                <div className={classes["friend-name-wrap"]}>
+                    <NavLink className={this.isActive} to={path}>{this.props.friendName}</NavLink>
+                </div>
             </div>
-            <div className={classes["friend-name-wrap"]}>
-                <NavLink className={isActive} to={path}>{props.friendName}</NavLink>
-            </div>
-        </div>
-    )
+        )
+    }
 };
 
 export default FriendsItem;
