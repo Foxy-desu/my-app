@@ -34,4 +34,25 @@
 }
 .user .user__container_right .user__user-info-wrap:last-child {
   align-items: end;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 15px;
+}
+.pagination .page {
+  font-weight: 100;
+  color: #fff;
+}
+.pagination .page:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #590d5c;
+}
+.pagination .selected-page {
+  font-weight: 700;
+  color: #590d5c;
+  cursor: default;
 }/*# sourceMappingURL=Users.module.css.map */

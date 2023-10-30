@@ -3,6 +3,9 @@ $userGap: 15px;
 $infoContainersGap: 90px;
 $leftContainerGap: 5px;
 
+$hoveredAndSelectedColor: #590d5c;
+
+
 @mixin flexBox($direction: row, $gap: 0) {
     display: flex;
     flex-wrap: wrap;
@@ -39,4 +42,26 @@ $leftContainerGap: 5px;
             }
         }
     }
+}
+
+.pagination {
+    @include flexBox($gap: 15px);
+
+    .page {
+        font-weight: 100;
+        color: #fff;
+        &:hover {
+            cursor: pointer;
+            text-decoration: none;
+            color: $hoveredAndSelectedColor;
+        }
+    }
+
+    .selected-page {
+        font-weight: 700;
+        color: $hoveredAndSelectedColor;
+        cursor: default;
+        
+    }
+
 }
