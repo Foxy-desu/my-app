@@ -10,7 +10,7 @@ class Posts extends React.Component {
     };
     textareaChange = ()=> {
         let text = this.textArea.current.value;
-        this.props.textchange(text);
+        this.props.textChange(text);
     };
     keyDownHandler = (event)=> {
         if (event.key === 'Enter' && event.ctrlKey) {
