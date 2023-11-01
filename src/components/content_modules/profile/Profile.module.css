@@ -1,12 +1,11 @@
-.app-main__profile {
+.profile {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    padding: 30px;
     
     gap: 40px;
     margin: 30px;
     background-color: rgba(207, 149, 193, 0.342);
 }
 
-.profile-avatar-block {
-  width: 180px;
-}

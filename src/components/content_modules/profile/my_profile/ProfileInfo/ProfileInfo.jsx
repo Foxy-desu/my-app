@@ -1,22 +1,37 @@
-import React from "react";
-import classes from "./ProfileInfo.module.css"
+import React from 'react';
+import classes from './ProfileInfo.module.css';
+import ProfileAvatar from '../ProfileAvatar/ProfileAvatar';
 
-class ProfileInfo extends React.Component {
-    render = () => {
-        return (
-            <div className={classes['app-main__profile-info']}>
-                <div className={classes['name-wrap']}>
-                    <p>Alexandra O</p>
+const ProfileInfo = (props) => {
+
+    const data = props.profile ? props.profile : '';
+    
+    const contacts = data.contacts;
+    let contactsArr = [];
+
+    for(let key in contacts) {
+        if(contacts[key]) {
+            contactsArr = [...contactsArr, <li key={key}><span>{key}:</span><span className={classes['link']}>{contacts[key]}</span></li>]
+        }
+    };
+    return (
+        <div className={classes['profile-info__wrap']}>
+            <ProfileAvatar photos={data.photos}/>
+            <div className={classes['profile-info']}>
+                <div className={classes['profile-info__name-wrap']}>
+                    <p>{data.fullName}</p>
                 </div>
                 <div className='personal-info-wrap'>
-                    <p className={`${classes['birth-date']} ${classes['profile-info']}`}>Date of birth: <span>7 July</span></p>
-                    <p className={`${classes['location']} ${classes['profile-info']}`}>City: <span>Saint-Petersburg</span></p>
-                    <p className={`${classes['education']} ${classes['profile-info']}`}>Education: <span>AmSU'18</span>, <span>AmSU'20</span></p>
-                    <p className={`${classes['site']} ${classes['profile-info']}`}>Web Site: <span>www.fox.com</span></p>
+                    <p className={`${classes['birth-date']} ${classes['profile-info__personal-data']}`}>About me: <span>{data.aboutMe}</span></p>
+                    <p className={`${classes['location']} ${classes['profile-info__personal-data']}`}>Status: <span>{data.lookingForAJobDescription}</span></p>
+                    <div className={`${classes['education']} ${classes['profile-info__personal-data']}`}>Contacts: <ul>{contactsArr}</ul></div>
                 </div>
             </div>
-        );
-    }
-};
+        </div>
+    );
+}
+
+
+
 
 export default ProfileInfo;

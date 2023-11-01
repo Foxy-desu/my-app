@@ -1,0 +1,32 @@
+.post__card {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    box-sizing: border-box;
+    padding: 0 10px 0 0;
+    border: 1px solid black
+}
+.post__message-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.post__image-container {
+    width: 100px;
+}
+
+.post__message {}
+
+.post__message-text {
+    max-width: 50vw;
+    word-break:break-all;
+    overflow: hidden;
+}
+
+.stats {
+    display: flex;
+    gap: 15px;
+    justify-content: end;
+    align-self: end;
+}

@@ -1,19 +1,20 @@
-import React from "react";
-import ProfileAvatar from "./my_profile/ProfileAvatar/ProfileAvatar";
-import ProfileInfo from "./my_profile/ProfileInfo/ProfileInfo";
+import React from 'react';
+import ProfileBanner from './my_profile/ProfileBanner/ProfileBanner';
+import ProfileInfo from './my_profile/ProfileInfo/ProfileInfo';
+import PostsContainer from './my_profile/my_posts/PostsContainer';
 import classes from "./Profile.module.css";
 
-class Profile extends React.Component {
-    render = () => {
-        return (
-            <section className={classes['app-main__profile']}>
-                <div className={classes["profile-avatar-block"]}>
-                    <ProfileAvatar />
-                </div>
-                <ProfileInfo />
-            </section>
-        );
-    }
+const Profile = (props) => {
+    // const profile = props.profile ? props.profile : null;
+
+    return (
+        <section className={classes['profile']}>
+            <ProfileBanner />
+            <ProfileInfo profile={props.profile} />
+            <PostsContainer profile={props.profile} postData={props.postData} postText={props.newPostText}/>
+        </section>
+    );
+
 };
 
 export default Profile;

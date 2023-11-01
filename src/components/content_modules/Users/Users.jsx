@@ -1,8 +1,9 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import classes from "./Users.module.css"
 import userphoto from "../../../assets/images/user-image-mock.png"
 
-const Users = ({currentPage, onPageChanged, users, unfollow, follow, totalUsersCount, pageSize }) => {
+const Users = ({currentPage, onPageChanged, users, unfollow, follow, totalUsersCount, pageSize, setProfileId }) => {
 
     let pagesCount = Math.ceil(totalUsersCount / pageSize); //для манипуляции со старницами нужно знать их кол-во
     let pages = []; //сюда будем складывать наши страницы (а именно элементы пагинации)
@@ -34,7 +35,10 @@ const Users = ({currentPage, onPageChanged, users, unfollow, follow, totalUsersC
                     <div className={classes["user"]} key={user.id}>
                         <div className={classes["user__container_left"]}>
                             <div>
-                                <img className={classes["user__user-photo"]} src={user.photos.small ? user.photos.small : userphoto} />
+                                <NavLink to={`/profile/${user.id}`} onClick={()=> {
+                                    setProfileId(user.id);}}>
+                                    <img className={classes["user__user-photo"]} src={user.photos.small ? user.photos.small : userphoto}/>
+                                </NavLink>
                             </div>
                             <div>
                                 {user.followed

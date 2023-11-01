@@ -24,7 +24,7 @@ class Posts extends React.Component {
         });
 
         return (
-            <section className={classes.posts}>
+            <section className={classes['posts']}>
                 <h2 className={classes['posts-heading']}>My posts</h2>
                 <div className={classes['post-form']}>
                     <form name='create-post' id='post-form'>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Users from './Users';
 import Preloader from '../../../common/preloader/Preloader';
 import { follow, setCurrentPage, setTotalUsersCount, setUsers, unfollow, toggleIsFetching } from '../../../redux/usersReducer';
+import { setCurrentProfileId, setUserProfile } from '../../../redux/profileReducer';
 
 class UsersAPIComponent extends React.Component {
  
@@ -27,6 +28,16 @@ class UsersAPIComponent extends React.Component {
             })
     };
 
+    onProfileChanged =(id)=> {
+        this.props.setCurrentProfileId(id);
+        this.props.toggleIsFetching(true);
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${id}`)
+            .then(response => {
+                this.props.setUserProfile(response.data);
+                this.props.toggleIsFetching(false);
+            })
+    };
+
     render = () => {
         return <>
             {this.props.isFetching 
@@ -37,7 +48,8 @@ class UsersAPIComponent extends React.Component {
             pageSize={this.props.pageSize} 
             users={this.props.users} 
             unfollow={this.props.unfollow} 
-            follow={this.props.follow}/>} 
+            follow={this.props.follow}
+            setProfileId={this.onProfileChanged}/>} 
          </>
     };
 
@@ -54,7 +66,7 @@ const mapStateToProps = (state) => {
 };
 
 const UsersContainer = connect(mapStateToProps, {
-    follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching
+    follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, setCurrentProfileId, setUserProfile
 })(UsersAPIComponent);
 
 export default UsersContainer;

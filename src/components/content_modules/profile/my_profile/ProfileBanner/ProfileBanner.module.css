@@ -1,21 +1,23 @@
-.app-main__banner {
-    box-sizing: border-box;
-    max-width: 100vw;
-    height: 200px;
-    margin: 30px;
-    overflow: none;
-    display: flex;
-    justify-content: center;
-    background-color: #e6d7dd;
-  }
-  
-  .img-wrap {
-    display: flex;
-    width: 50%;
-    overflow: hidden;
-    justify-content: center;
-    
-  }
-  .banner-image {
-    width: auto;
-  }
+.profile__banner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  box-sizing: border-box;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: #e6d7dd;
+}
+
+.profile__banner-wrap {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  overflow: hidden;
+
+}
+
+.profile__banner-image {
+  width: auto;
+}

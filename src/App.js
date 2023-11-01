@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Header from "./components/header_modules/Header";
 import NavigationContainer from "./components/navigation_modules/NavigationContainer";
-import Content from "./components/content_modules/Content";
+import ProfileContainer from "./components/content_modules/profile/ProfileContainer";
 import Footer from "./components/footer_modules/Footer";
 import DialogsContainer from "./components/content_modules/Dialogs/DialogsContainer";
 import Music from "./components/content_modules/Music/Music";
@@ -21,7 +21,7 @@ function App() {
         <div className="app-wrapper-content">
           <Routes>
             <Route path="*" element={<Navigate to="/profile"/>}/>
-            <Route path="/profile" element={<Content/>} />
+            <Route path="/profile/:profileId?" element={<ProfileContainer/>} />
             <Route path="/dialogues/*" element={<DialogsContainer/>}/>
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
